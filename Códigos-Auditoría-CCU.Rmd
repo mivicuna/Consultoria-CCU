@@ -1,0 +1,751 @@
+--- 
+title:  |
+    ![](file:/Users/mivicuna/Desktop/Proyecto CCU/logo-ccu.png){width=200px height=70px align=right}  
+    Códigos Auditoría CCU
+author: "M. Ignacia Vicuña - Cristian Vásquez"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+documentclass: book
+---
+ 
+<div style="text-align: justify">
+
+
+
+# 1. Modelo Cervezas
+
+```{r message=FALSE}
+# Cargar librerías de trabajo en R
+
+library(readxl)
+library(scales)
+library(ggplot2)
+library(ggpubr)
+library(forecast)
+library(dplyr)
+library(car)
+library(ggcorrplot)
+library(FitAR)
+```
+
+Importar los datos, dependiendo la ubicación que se encuentren en el directorio
+
+```{r}
+
+ruta = "/Users/mivicuna/Desktop/Proyecto CCU/Información CCU/Cervezas 26-08-2021 V5/DataFrameCervezasInterna.xlsx"
+
+datoscer  = read_excel(ruta,col_types = c("date", "numeric","numeric",
+                       "numeric", "numeric", "numeric", "numeric"))
+```
+ 
+## 1.1 Análisis Descriptivo
+
+#### 1.1.1 Venta Volumen de Cervezas
+
+A continuación se grafica la variable objetivo de venta volumen de cerveza desde Enero 2014 a Agosto 2021.
+
+```{r}
+plot1.1  =  ggplot(datoscer,aes(x = PERIODO, y = CERVEZAS))   +
+  geom_point(colour = "skyblue4", alpha = 0.7)    +
+  geom_line(colour = "skyblue4", alpha = 0.7)     +
+  labs(title = "Volumen Industria Cerveza",
+       x = "Fecha",
+       y = "Volumen en millones")                 +
+  theme_bw()                                      +
+  scale_y_continuous(labels = label_number(suffix =   "M", scale = 1e-6))                                         
+   
+```
+
+El histograma de la venta volumen de cervezas está dado por
+
+```{r}
+plot1.2  =  ggplot(data = datoscer, aes(x = CERVEZAS))      +
+            geom_histogram(alpha = 0.7, color="black", fill =
+            "slategray4")                                   +
+            labs(title = "Histograma del Volumen Industria   
+            Cerveza",
+            x = "Volumen Industria Cerveza",
+            y = "Frecuencia")                               +
+            scale_x_continuous(labels = label_number(suffix = "M", scale = 1e-6))  +
+            theme_bw()
+```
+
+```{r message=FALSE}
+ggarrange(plot1.1,plot1.2, ncol=2,nrow=1)
+```
+
+Las medidas descriptivas de la venta volumen de cervezas se calculan mediante
+
+```{r}
+medidas = skimr::skim(select(datoscer,CERVEZAS))
+```
+
+#### 1.1.2 Variables Independientes
+
+Los gráficos de tendencia para cada una de las dimesiones predictoras del modelo
+
+```{r message=FALSE}
+#====== Desempleo ======#
+
+plot2.1  =  ggplot(datoscer,aes(x = PERIODO))                                     +
+            geom_point(aes(y = DESEMPLEO), alpha = 0.7, colour = "skyblue4")      +
+            geom_line(aes(y = DESEMPLEO), alpha = 0.7, colour = "skyblue4")       +
+            labs(title    = "Tasa de Desempleo  \n INE",  
+            x = "Fecha", y = "Valor Tasa")                                        +
+            theme_bw()                
+ 
+
+#====== Precio Cervezas ======#
+
+plot2.2   = ggplot(datoscer,aes(x = PERIODO))                                     +
+            geom_point(aes(y = PCERVEZAS_T), alpha = 0.7, colour = "skyblue4")    +
+            geom_line(aes(y = PCERVEZAS_T), alpha = 0.7, colour = "skyblue4")     +
+            labs(title    = "Precio Industria \n    Cerveza",  
+            x = "Fecha",  y = "Precio")                                           +
+            theme_bw()                                                        
+ 
+#====== Temperatura Máxima ======#
+
+plot2.3  = ggplot(datoscer,aes(x = PERIODO))                                     +
+           geom_point(aes(y = TEMP_MAX), alpha = 0.7, colour = "skyblue4")       +
+           geom_line(aes(y = TEMP_MAX), alpha = 0.7, colour = "skyblue4")        +
+           labs(title    = "Temperatura Máxima \n  Promedio", 
+           x = "Fecha",y = "Temperatura")                                        +
+           theme_bw()                                                 
+ 
+#====== Índice de Movilidad ======#
+
+plot2.4 =   ggplot(datoscer,aes(x = PERIODO))                                     +
+            geom_point(aes(y = MOVILIDAD), alpha = 0.7, colour = "skyblue4")      +
+            geom_line(aes(y = MOVILIDAD), alpha = 0.7, colour = "skyblue4")       +
+            labs(title    = "Índice de Movibilidad",
+            x = "Fecha",
+            y = "Valor del índice")                                               +
+            theme_bw()                                               
+ 
+  
+#====== Retiros ======#
+
+plot2.5  = ggplot(datoscer,aes(x = PERIODO))                                     +
+           geom_point(aes(y = RETIROS), alpha = 0.7, colour = "skyblue4")        +
+           geom_line(aes(y = RETIROS), alpha = 0.7, colour = "skyblue4")         +
+           labs(title    = "Variable Retiros \n AFP",
+           x = "Fecha",
+           y = "Valor del índice")                                               +
+           theme_bw()                                                       
+               
+ggarrange(plot2.1,plot2.2,plot2.3,plot2.4,plot2.5,ncol=3,nrow=2)
+
+```
+
+Los histogramas de distribuciones de cada dimensión predictiva
+
+```{r message=FALSE}
+#====== Desempleo ======#
+
+plot3.1  = ggplot(data = datoscer, aes(x = DESEMPLEO))                       +
+           geom_histogram(alpha = 0.7, color="black", fill = "slategray4")   +
+           labs(title = "Histograma de la tasa \n de desempleo", 
+           x = "Tasa desempleo",  y = "Frecuencia")                          +
+           theme_bw()
+
+
+#====== Precio Cervezas ======#
+
+plot3.2  =  ggplot(data = datoscer, aes(x = PCERVEZAS_T))                      +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de precio \n industria cerveza",
+            x = "Precio Cerveza",  y = "Frecuencia")                           +
+            theme_bw()
+
+
+#====== Temperatura Máxima ======#
+
+plot3.3  = ggplot(data = datoscer, aes(x = TEMP_MAX))                          +
+           geom_histogram(alpha = 0.7, color="black", fill = "slategray4")     +
+           labs(title = "Histograma de la \n temperatura máxima",
+           x = "Temperatura máxima", y = "Frecuencia")                         +
+           theme_bw()
+
+#====== Índice de Movilidad ======#
+
+
+plot3.4  =  ggplot(data = datoscer, aes(x = MOVILIDAD))                        +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de índice \n de movilidad ",  
+            x = "índice movilidad",y = "Frecuencia")                      +
+            theme_bw()
+
+
+#====== Retiros ======#
+
+
+plot3.5  =  ggplot(data = datoscer, aes(x = RETIROS))                          +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de retiros \n AFP", 
+            x = "Retiros AFP",  y = "Frecuencia")                              +
+            theme_bw()
+
+ggarrange(plot3.1,plot3.2,plot3.3,plot3.4,plot3.5,ncol=3,nrow=2)
+
+```
+
+```{r}
+medidas_variables = skimr::skim(select(datoscer,-c(PERIODO,CERVEZAS)))
+```
+
+## 1.2 Análisis Bivariado
+
+A continuación los gráficos de dispersión de la variable objetivo con las dimensiones independientes
+
+```{r message=FALSE}
+subset2.1 <- select(datoscer,-c(PERIODO,CERVEZAS))
+Cervezas  <- datoscer$CERVEZAS
+
+myplots <- list()
+
+for(i in 1:ncol(subset2.1)){
+  col <- names(subset2.1)[i]
+  aux <- bind_cols(Cervezas = Cervezas,select(datoscer,col))
+  ggp <- ggplot(aux, aes_string(x = col , y = "Cervezas"))    +
+    geom_point(color = "slategray4",alpha=0.7)                +
+    geom_smooth(method = "lm",col="red")                      +
+    labs(y = "Volumen Industria Cerveza")                     +
+    scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6))
+  theme_bw()
+  myplots[[i]] <- ggp
+  rm(ggp,aux,col)
+}
+```
+
+```{r message=FALSE}
+
+plot3.3 <- ggarrange(myplots[[1]],myplots[[2]],myplots[[3]], 
+                     myplots[[4]],myplots[[5]],
+                     nrow = 2, ncol = 3, common.legend = TRUE)
+
+annotate_figure(plot3.3,top = text_grob("Gráficos de dispersión las variables independientes"))
+
+```
+
+Cálculo de correlaciones de la variable objetivo con las dimensiones utilizadas 
+
+```{r}
+tibble(Variable = row.names(cor(subset2.1, Cervezas)),
+       Correlacion = as.numeric(cor(subset2.1, Cervezas))) %>%
+       arrange(desc(abs(Correlacion)))
+
+```
+
+#### Ajuste del Modelo  CCU 
+ 
+```{r}
+
+Cervezas  = ts(datoscer$CERVEZAS, frequency=12, start=c(2014,1))
+TYPCYD    = ts(as.matrix(select(datoscer,-c(PERIODO,CERVEZAS))), frequency=12,
+            start=c(2014,1))
+
+## Modelo Ajustado  con la función auto.arima()
+
+arimaCervezas = auto.arima(Cervezas, xreg=TYPCYD)
+```
+ 
+Se ajusta el modelo obtenido con la función  auto.arima( ) utilizando la función Arima( ) del paquete  forecast de R,  
+
+```{r}
+## Ajustar el modelo obtenido con autoarima con la función Arima
+
+model_auto_arima_cerv = Arima(Cervezas,order = c(3, 0, 0),
+                         seasonal = list(order = c(0, 1, 1), 
+                         period = 12),include.drift =TRUE,xreg = TYPCYD )
+
+```
+
+Se evalúa la significancia de los parámetros realizando test $H_0:\beta_i = 0$ v/s $H_1: \beta_i \neq 0$ para $i=1,2,3,4,5$ 
+
+```{r}
+### Significancia de los parámetros del modelo
+
+beta_est = model_auto_arima_cerv$coef
+sd_est = sqrt(diag(model_auto_arima_cerv$var.coef))
+value_t = abs(beta_est/sd_est)
+```
+
+## 1.3 Análisis Multivariado
+ 
+
+A continuación los gráficos de heatmap de correlaciones de a pares de las dimensiones independientes
+
+```{r}
+variables      = colnames(subset2.1[,1:5])
+corr_variables = matrix(round(cor(subset2.1[,1:5]),3),nrow=5,ncol=5, dimnames = list(variables,variables))
+
+ggcorrplot(corr_variables, hc.order = TRUE, outline.col = "black", lab = TRUE, )    + 
+           theme(axis.text.x = element_text(size = 8),
+           axis.text.y = element_text(size = 8)) 
+```
+
+## 1.4 Verificación de los supuestos 
+
+#### 1.4.1 Normalidad
+
+```{r message=FALSE }
+datoscer$Residuos <- residuals(model_auto_arima_cerv)
+
+# Residuos Estandarizados
+datoscer$Residuos_z = (datoscer$Residuos - mean(datoscer$Residuos))/sd(datoscer$Residuos)
+  
+# ===== QQ-plot =====#
+
+plot4.3 <- ggplot(datoscer, aes(sample = Residuos_z))         + 
+           stat_qq()                                          + 
+           geom_abline(slope=1)                               + 
+           labs(title = "Normal Q-Q Plot",
+           x = "Theoretical Quantiles",
+           y = "Sample Quantiles")              +
+           theme_bw()
+
+x  = seq(min(seq(min(datoscer$Residuos_z),max(datoscer$Residuos_z),len=1000)),
+     max(datoscer$Residuos_z),len=1000)
+gg = dnorm(x,0,1)
+
+datosplot <- data.frame(x = x, y = gg)
+
+plot4.4 <- ggplot(data = datoscer, aes(x = Residuos_z))        +
+           geom_histogram(aes(y=..density..),alpha = 0.5,
+           color="black", fill = "gray50")                     +
+           geom_point(data=datosplot, aes(x=x,y=y),
+           color="skyblue4")                                   +
+           labs(title = "Distribución Normal",
+            x = "Residuos") +
+            theme_bw()
+
+ggarrange(plot4.3,plot4.4,ncol=2)
+
+```
+
+#### 1.4.2 Independencia
+
+```{r}
+plot1 = ggAcf(datoscer$Residuos,lag=30) +
+        labs(title = "ACF Residuos Modelo Cervezas") +
+        ylim(-0.3,0.3) + 
+        theme_bw()
+plot1
+```
+
+El test de Ljung-Box para testear simúltaneamente que sean incorrelacionados los errores para varios lag de tiempo
+
+```{r}
+Est = c()
+valorp = c()
+
+for( i in 1:12){
+  Test = Box.test(datoscer$Residuos, lag = i, type =   "Ljung-Box")
+  Est[i]  = Test$statistic
+  valorp[i] = Test$p.value
+}
+
+tibble(Lag = seq(1,12),Estadistico = Est, valor_p = valorp)
+```
+
+Gráfico de los valores-p del test Ljung-Box
+
+```{r}
+LBQPlot(datoscer$Residuos)
+```
+
+
+#### 1.4.3 No colinealidad 
+
+```{r message=FALSE}
+Regresion_Model_Cer <- lm(CERVEZAS ~ -1 + DESEMPLEO  + PCERVEZAS_T +TEMP_MAX + MOVILIDAD +RETIROS,data=datoscer )
+```
+
+
+```{r message=FALSE,  warning=FALSE}
+tibble(Variable = names(vif(Regresion_Model_Cer)), VIF = round(vif(Regresion_Model_Cer),3))%>%as.data.frame()
+
+```
+
+#### 1.4.4 Homocedasticidad
+
+```{r message=FALSE}
+plot1 =  ggplot(data = subset2.1, aes(model_auto_arima_cerv$fitted,model_auto_arima_cerv$residuals)) +
+  geom_point() +
+  geom_smooth(color = "firebrick", se = FALSE) +
+  geom_hline(yintercept = 0) +
+  labs( title = "Gráfico Homocedasticidad Modelo Cervezas ",
+        y = "Residuos",
+        x = "Ventas Volumen Proyectadas")               +
+  theme_bw()
+
+plot1
+```
+
+
+# 2. Modelo Gaseosas
+
+Importar los datos, dependiendo la ubicación que se encuentren en el directorio
+
+```{r message=FALSE}
+
+ruta = "/Users/mivicuna/Desktop/Proyecto CCU/Información CCU/Gaseosas 15-09-2021/Data Frame Gaseosas Interna.xlsx"
+
+datosgas  = read_excel(ruta,col_types = c("date", "numeric","numeric",
+                       "numeric", "numeric", "numeric", "numeric"))
+```
+
+## 2.1 Análisis Descriptivo
+
+#### 2.1.1 Venta Volumen de Gaseosas
+
+A continuación se grafica la variable objetivo de venta volumen de gaseosas desde Enero 2015 a Agosto 2021.
+
+```{r message=FALSE}
+plot1.1  =  ggplot(datosgas,aes(x = PERIODO, y = GASEOSAS))   +
+  geom_point(colour = "skyblue4", alpha = 0.7)    +
+  geom_line(colour = "skyblue4", alpha = 0.7)     +
+  labs(title = "Volumen Industria Gaseosas",
+       x = "Fecha",
+       y = "Volumen en millones")                 +
+  theme_bw()                                      +
+  scale_y_continuous(labels = label_number(suffix =   "M", scale = 1e-6))                                         
+   
+```
+
+El histograma de la venta volumen de gaseosas está dado por
+
+```{r message=FALSE}
+plot1.2  =  ggplot(data = datosgas, aes(x = GASEOSAS))      +
+            geom_histogram(alpha = 0.7, color="black", fill =
+            "slategray4")                                   +
+            labs(title = "Histograma del Volumen Industria   
+            Gaseosas",
+            x = "Volumen Industria Gaseosas",
+            y = "Frecuencia")                               +
+            scale_x_continuous(labels = label_number(suffix = "M", scale = 1e-6))  +
+            theme_bw()
+```
+
+```{r message=FALSE}
+ggarrange(plot1.1,plot1.2, ncol=2,nrow=1)
+```
+
+Las medidas descriptivas de la venta volumen de gaseosas se calculan mediante
+
+```{r message=FALSE}
+medidas = skimr::skim(select(datosgas,GASEOSAS))
+```
+
+#### 2.2.2 Variables Independientes
+
+Los gráficos de tendencia para cada una de las dimesiones predictoras del modelo
+
+```{r message=FALSE}
+#====== Desempleo ======#
+
+plot2.1  =  ggplot(datosgas,aes(x = PERIODO))                                     +
+            geom_point(aes(y = DESEMPLEO), alpha = 0.7, colour = "skyblue4")      +
+            geom_line(aes(y = DESEMPLEO), alpha = 0.7, colour = "skyblue4")       +
+            labs(title    = "Tasa de Desempleo  \n INE",  
+            x = "Fecha", y = "Valor Tasa")                                        +
+            theme_bw()                
+ 
+
+#====== Precio Gasesosas ======#
+
+plot2.2   = ggplot(datosgas,aes(x = PERIODO))                                     +
+            geom_point(aes(y = PGASEOSAS_T), alpha = 0.7, colour = "skyblue4")    +
+            geom_line(aes(y = PGASEOSAS_T), alpha = 0.7, colour = "skyblue4")     +
+            labs(title    = "Precio Industria \n    Gaseosas",  
+            x = "Fecha",  y = "Precio")                                           +
+            theme_bw()                                                        
+ 
+#====== Temperatura Máxima ======#
+
+plot2.3  = ggplot(datosgas,aes(x = PERIODO))                                     +
+           geom_point(aes(y = TEMP_MAX), alpha = 0.7, colour = "skyblue4")       +
+           geom_line(aes(y = TEMP_MAX), alpha = 0.7, colour = "skyblue4")        +
+           labs(title    = "Temperatura Máxima \n  Promedio", 
+           x = "Fecha",y = "Temperatura")                                        +
+           theme_bw()                                                 
+ 
+#====== Índice de Movilidad ======#
+
+plot2.4 =   ggplot(datosgas,aes(x = PERIODO))                                     +
+            geom_point(aes(y = MOVILIDAD), alpha = 0.7, colour = "skyblue4")      +
+            geom_line(aes(y = MOVILIDAD), alpha = 0.7, colour = "skyblue4")       +
+            labs(title    = "Índice de Movibilidad",
+            x = "Fecha",
+            y = "Valor del índice")                                               +
+            theme_bw()                                               
+ 
+  
+#====== Retiros ======#
+
+plot2.5  = ggplot(datosgas,aes(x = PERIODO))                                     +
+           geom_point(aes(y = RETIROS), alpha = 0.7, colour = "skyblue4")        +
+           geom_line(aes(y = RETIROS), alpha = 0.7, colour = "skyblue4")         +
+           labs(title    = "Variable Retiros \n AFP",
+           x = "Fecha",
+           y = "Valor del índice")                                               +
+           theme_bw()                                                       
+               
+ggarrange(plot2.1,plot2.2,plot2.3,plot2.4,plot2.5,ncol=3,nrow=2)
+
+```
+
+Los histogramas de distribuciones de cada dimensión predictiva
+
+```{r message=FALSE}
+#====== Desempleo ======#
+
+plot3.1  = ggplot(data = datosgas, aes(x = DESEMPLEO))                       +
+           geom_histogram(alpha = 0.7, color="black", fill = "slategray4")   +
+           labs(title = "Histograma de la tasa \n de desempleo", 
+           x = "Tasa desempleo",  y = "Frecuencia")                          +
+           theme_bw()
+
+
+#====== Precio Gaseosas ======#
+
+plot3.2  =  ggplot(data = datosgas, aes(x = PGASEOSAS_T))                      +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de precio \n industria gasesosas",
+            x = "Precio Gaseosas",  y = "Frecuencia")                           +
+            theme_bw()
+
+
+#====== Temperatura Máxima ======#
+
+plot3.3  = ggplot(data = datosgas, aes(x = TEMP_MAX))                          +
+           geom_histogram(alpha = 0.7, color="black", fill = "slategray4")     +
+           labs(title = "Histograma de la \n temperatura máxima",
+           x = "Temperatura máxima", y = "Frecuencia")                         +
+           theme_bw()
+
+#====== Índice de Movilidad ======#
+
+
+plot3.4  =  ggplot(data = datosgas, aes(x = MOVILIDAD))                        +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de índice \n de movilidad ",  
+            x = "índice movilidad",y = "Frecuencia")                      +
+            theme_bw()
+
+
+#====== Retiros ======#
+
+
+plot3.5  =  ggplot(data = datosgas, aes(x = RETIROS))                          +
+            geom_histogram(alpha = 0.7, color="black", fill = "slategray4")    +
+            labs(title = "Histograma de retiros \n AFP", 
+            x = "Retiros AFP",  y = "Frecuencia")                              +
+            theme_bw()
+
+ggarrange(plot3.1,plot3.2,plot3.3,plot3.4,plot3.5,ncol=3,nrow=2)
+
+```
+
+```{r message=FALSE}
+medidas_variables = skimr::skim(select(datosgas,-c(PERIODO,GASEOSAS)))
+```
+
+
+## 2.2 Análisis Bivariado
+
+A continuación los gráficos de dispersión de la variable objetivo con las dimensiones independientes
+
+```{r message=FALSE}
+subset2.2 <- select(datosgas,-c(PERIODO,GASEOSAS))
+Gaseosas <- datosgas$GASEOSAS
+
+myplots <- list()
+
+for(i in 1:ncol(subset2.2)){
+  col <- names(subset2.2)[i]
+  aux <- bind_cols(Gaseosas = Gaseosas,select(datosgas,col))
+  ggp <- ggplot(aux, aes_string(x = col , y = "Gaseosas"))    +
+    geom_point(color = "slategray4",alpha=0.7)                +
+    geom_smooth(method = "lm",col="red")                      +
+    labs(y = "Volumen Industria Gaseosas")                     +
+    scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6))
+  theme_bw()
+  myplots[[i]] <- ggp
+  rm(ggp,aux,col)
+}
+```
+
+```{r message=FALSE}
+
+plot3.3 <- ggarrange(myplots[[1]],myplots[[2]],myplots[[3]], 
+                     myplots[[4]],myplots[[5]],
+                     nrow = 2, ncol = 3, common.legend = TRUE)
+
+annotate_figure(plot3.3,top = text_grob("Gráficos de dispersión las variables independientes"))
+
+```
+
+Cálculo de correlaciones de la variable objetivo con las dimensiones utilizadas 
+
+```{r message=FALSE}
+tibble(Variable = row.names(cor(subset2.2, Gaseosas)),
+       Correlacion = as.numeric(cor(subset2.2, Gaseosas))) %>%
+       arrange(desc(abs(Correlacion)))
+
+```
+
+#### Ajuste del Modelo  CCU 
+ 
+```{r message=FALSE}
+ 
+Gaseosas   = ts(datosgas$GASEOSAS, frequency=12, start=c(2015,1))
+TYPCYD2    = ts(as.matrix(select(datosgas,-c(PERIODO,GASEOSAS))), frequency=12,
+            start=c(2015,1))
+
+## Modelo Ajustado  con la función auto.arima()
+
+arimaCervezas = auto.arima(Gaseosas, xreg=TYPCYD2)
+```
+
+
+Se ajusta el modelo obtenido con la función  auto.arima( ) utilizando la función Arima( ) del paquete  forecast de R,  
+
+```{r message=FALSE}
+## Ajustar el modelo obtenido con autoarima con la función Arima
+
+model_auto_arima_gas = Arima(Gaseosas,order = c(3, 0, 0),
+                         seasonal = list(order = c(0, 1, 1), 
+                         period = 12),include.drift =TRUE,xreg = TYPCYD2 )
+
+```
+
+Se evalúa la significancia de los parámetros realizando test $H_0:\beta_i = 0$ v/s $H_1: \beta_i \neq 0$ para $i=1,2,3,4,5$ 
+
+```{r message=FALSE}
+### Significancia de los parámetros del modelo
+
+beta_est = model_auto_arima_gas$coef
+sd_est = sqrt(diag(model_auto_arima_gas$var.coef))
+value_t = abs(beta_est/sd_est)
+```
+
+## 2.3 Análisis Multivariado
+
+A continuación los gráficos de heatmap de correlaciones de a pares de las dimensiones independientes
+
+```{r message=FALSE}
+variables      = colnames(subset2.2[,1:5])
+corr_variables = matrix(round(cor(subset2.2[,1:5]),3),nrow=5,ncol=5, dimnames = list(variables,variables))
+
+ggcorrplot(corr_variables, hc.order = TRUE, outline.col = "black", lab = TRUE, )    + 
+           theme(axis.text.x = element_text(size = 8),
+           axis.text.y = element_text(size = 8)) 
+```
+
+## 2.4 Verificación de los supuestos 
+
+#### 2.4.1 Normalidad
+
+```{r message=FALSE}
+datosgas$Residuos <- residuals(model_auto_arima_gas)
+
+# Residuos Estandarizados
+datosgas$Residuos_z = (datosgas$Residuos - mean(datosgas$Residuos))/sd(datosgas$Residuos)
+  
+# ===== QQ-plot =====#
+
+plot4.3 <- ggplot(datosgas, aes(sample = Residuos_z))         + 
+           stat_qq()                                          + 
+           geom_abline(slope=1)                               + 
+           labs(title = "Normal Q-Q Plot",
+           x = "Theoretical Quantiles",
+           y = "Sample Quantiles")              +
+           theme_bw()
+
+x  = seq(min(seq(min(datosgas$Residuos_z),max(datosgas$Residuos_z),len=1000)),
+     max(datosgas$Residuos_z),len=1000)
+gg = dnorm(x,0,1)
+
+datosplot <- data.frame(x = x, y = gg)
+
+plot4.4 <- ggplot(data = datosgas, aes(x = Residuos_z))        +
+           geom_histogram(aes(y=..density..),alpha = 0.5,
+           color="black", fill = "gray50")                     +
+           geom_point(data=datosplot, aes(x=x,y=y),
+           color="skyblue4")                                   +
+           labs(title = "Distribución Normal",
+            x = "Residuos") +
+            theme_bw()
+
+ggarrange(plot4.3,plot4.4,ncol=2)
+
+```
+
+#### 2.4.2 Independencia
+
+```{r message=FALSE}
+plot1 = ggAcf(datosgas$Residuos,lag=30) +
+        labs(title = "ACF Residuos Modelo Gaseosas") +
+        ylim(-0.3,0.3) + 
+        theme_bw()
+plot1
+```
+
+El test de Ljung-Box para testear simúltaneamente que sean incorrelacionados los errores para varios lag de tiempo
+
+```{r message=FALSE}
+Est = c()
+valorp = c()
+
+for( i in 1:12){
+  Test = Box.test(datosgas$Residuos, lag = i, type =   "Ljung-Box")
+  Est[i]  = Test$statistic
+  valorp[i] = Test$p.value
+}
+
+tibble(Lag = seq(1,12),Estadistico = Est, valor_p = valorp)
+```
+
+Gráfico de los valores-p del test Ljung-Box
+
+```{r message=FALSE}
+ 
+LBQPlot(datosgas$Residuos)
+```
+
+
+#### 2.4.3 No colinealidad 
+
+```{r message=FALSE}
+Regresion_Model_Gas <- lm(GASEOSAS ~ -1 + DESEMPLEO  + PGASEOSAS_T +TEMP_MAX + MOVILIDAD +RETIROS,data=datosgas )
+```
+
+
+```{r message=FALSE,warning = FALSE}
+tibble(Variable = names(vif(Regresion_Model_Gas)), VIF = round(vif(Regresion_Model_Gas),3))%>%as.data.frame()
+
+```
+
+#### 2.4.4 Homocedasticidad
+
+```{r message=FALSE}
+plot1 =  ggplot(data = subset2.2, aes(model_auto_arima_gas$fitted,model_auto_arima_gas$residuals)) +
+  geom_point() +
+  geom_smooth(color = "firebrick", se = FALSE) +
+  geom_hline(yintercept = 0) +
+  labs( title = "Gráfico Homocedasticidad Modelo Gaseosas ",
+        y = "Residuos",
+        x = "Ventas Volumen Proyectadas")               +
+  theme_bw()
+
+plot1
+```
+
+
+ 
+

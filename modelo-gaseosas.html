@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2. Modelo Gaseosas |  Códigos Auditoría CCU</title>
+  <meta name="description" content="<br />
+Códigos Auditoría CCU</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2. Modelo Gaseosas |  Códigos Auditoría CCU" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2. Modelo Gaseosas |  Códigos Auditoría CCU" />
+  
+  
+  
+
+<meta name="author" content="M. Ignacia Vicuña - Cristian Vásquez" />
+
+
+<meta name="date" content="2021-12-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelo-cervezas.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="modelo-cervezas.html"><a href="modelo-cervezas.html"><i class="fa fa-check"></i>1. Modelo Cervezas</a><ul>
+<li class="chapter" data-level="" data-path="modelo-cervezas.html"><a href="modelo-cervezas.html#análisis-descriptivo"><i class="fa fa-check"></i>1.1 Análisis Descriptivo</a></li>
+<li class="chapter" data-level="" data-path="modelo-cervezas.html"><a href="modelo-cervezas.html#análisis-bivariado"><i class="fa fa-check"></i>1.2 Análisis Bivariado</a></li>
+<li class="chapter" data-level="" data-path="modelo-cervezas.html"><a href="modelo-cervezas.html#análisis-multivariado"><i class="fa fa-check"></i>1.3 Análisis Multivariado</a></li>
+<li class="chapter" data-level="" data-path="modelo-cervezas.html"><a href="modelo-cervezas.html#verificación-de-los-supuestos"><i class="fa fa-check"></i>1.4 Verificación de los supuestos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="modelo-gaseosas.html"><a href="modelo-gaseosas.html"><i class="fa fa-check"></i>2. Modelo Gaseosas</a><ul>
+<li class="chapter" data-level="" data-path="modelo-gaseosas.html"><a href="modelo-gaseosas.html#análisis-descriptivo-1"><i class="fa fa-check"></i>2.1 Análisis Descriptivo</a></li>
+<li class="chapter" data-level="" data-path="modelo-gaseosas.html"><a href="modelo-gaseosas.html#análisis-bivariado-1"><i class="fa fa-check"></i>2.2 Análisis Bivariado</a></li>
+<li class="chapter" data-level="" data-path="modelo-gaseosas.html"><a href="modelo-gaseosas.html#análisis-multivariado-1"><i class="fa fa-check"></i>2.3 Análisis Multivariado</a></li>
+<li class="chapter" data-level="" data-path="modelo-gaseosas.html"><a href="modelo-gaseosas.html#verificación-de-los-supuestos-1"><i class="fa fa-check"></i>2.4 Verificación de los supuestos</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="file:/Users/mivicuna/Desktop/Proyecto%20CCU/logo-ccu.png" align="right" width="200" height="70" /><br />
+Códigos Auditoría CCU</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelo-gaseosas" class="section level1">
+<h1>2. Modelo Gaseosas</h1>
+<p>Importar los datos, dependiendo la ubicación que se encuentren en el directorio</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="modelo-gaseosas.html#cb29-1"></a>ruta =<span class="st"> &quot;/Users/mivicuna/Desktop/Proyecto CCU/Información CCU/Gaseosas 15-09-2021/Data Frame Gaseosas Interna.xlsx&quot;</span></span>
+<span id="cb29-2"><a href="modelo-gaseosas.html#cb29-2"></a></span>
+<span id="cb29-3"><a href="modelo-gaseosas.html#cb29-3"></a>datosgas  =<span class="st"> </span><span class="kw">read_excel</span>(ruta,<span class="dt">col_types =</span> <span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;numeric&quot;</span>,<span class="st">&quot;numeric&quot;</span>,</span>
+<span id="cb29-4"><a href="modelo-gaseosas.html#cb29-4"></a>                       <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>, <span class="st">&quot;numeric&quot;</span>))</span></code></pre></div>
+<div id="análisis-descriptivo-1" class="section level2">
+<h2>2.1 Análisis Descriptivo</h2>
+<div id="venta-volumen-de-gaseosas" class="section level4">
+<h4>2.1.1 Venta Volumen de Gaseosas</h4>
+<p>A continuación se grafica la variable objetivo de venta volumen de gaseosas desde Enero 2015 a Agosto 2021.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="modelo-gaseosas.html#cb30-1"></a>plot1<span class="fl">.1</span>  =<span class="st">  </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO, <span class="dt">y =</span> GASEOSAS))   <span class="op">+</span></span>
+<span id="cb30-2"><a href="modelo-gaseosas.html#cb30-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>)    <span class="op">+</span></span>
+<span id="cb30-3"><a href="modelo-gaseosas.html#cb30-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>)     <span class="op">+</span></span>
+<span id="cb30-4"><a href="modelo-gaseosas.html#cb30-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Volumen Industria Gaseosas&quot;</span>,</span>
+<span id="cb30-5"><a href="modelo-gaseosas.html#cb30-5"></a>       <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb30-6"><a href="modelo-gaseosas.html#cb30-6"></a>       <span class="dt">y =</span> <span class="st">&quot;Volumen en millones&quot;</span>)                 <span class="op">+</span></span>
+<span id="cb30-7"><a href="modelo-gaseosas.html#cb30-7"></a><span class="st">  </span><span class="kw">theme_bw</span>()                                      <span class="op">+</span></span>
+<span id="cb30-8"><a href="modelo-gaseosas.html#cb30-8"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> <span class="kw">label_number</span>(<span class="dt">suffix =</span>   <span class="st">&quot;M&quot;</span>, <span class="dt">scale =</span> <span class="fl">1e-6</span>))                                         </span></code></pre></div>
+<p>El histograma de la venta volumen de gaseosas está dado por</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="modelo-gaseosas.html#cb31-1"></a>plot1<span class="fl">.2</span>  =<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> GASEOSAS))      <span class="op">+</span></span>
+<span id="cb31-2"><a href="modelo-gaseosas.html#cb31-2"></a><span class="st">            </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span></span>
+<span id="cb31-3"><a href="modelo-gaseosas.html#cb31-3"></a>            <span class="st">&quot;slategray4&quot;</span>)                                   <span class="op">+</span></span>
+<span id="cb31-4"><a href="modelo-gaseosas.html#cb31-4"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma del Volumen Industria   </span></span>
+<span id="cb31-5"><a href="modelo-gaseosas.html#cb31-5"></a><span class="st">            Gaseosas&quot;</span>,</span>
+<span id="cb31-6"><a href="modelo-gaseosas.html#cb31-6"></a>            <span class="dt">x =</span> <span class="st">&quot;Volumen Industria Gaseosas&quot;</span>,</span>
+<span id="cb31-7"><a href="modelo-gaseosas.html#cb31-7"></a>            <span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                               <span class="op">+</span></span>
+<span id="cb31-8"><a href="modelo-gaseosas.html#cb31-8"></a><span class="st">            </span><span class="kw">scale_x_continuous</span>(<span class="dt">labels =</span> <span class="kw">label_number</span>(<span class="dt">suffix =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">scale =</span> <span class="fl">1e-6</span>))  <span class="op">+</span></span>
+<span id="cb31-9"><a href="modelo-gaseosas.html#cb31-9"></a><span class="st">            </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="modelo-gaseosas.html#cb32-1"></a><span class="kw">ggarrange</span>(plot1<span class="fl">.1</span>,plot1<span class="fl">.2</span>, <span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Las medidas descriptivas de la venta volumen de gaseosas se calculan mediante</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="modelo-gaseosas.html#cb33-1"></a>medidas =<span class="st"> </span>skimr<span class="op">::</span><span class="kw">skim</span>(<span class="kw">select</span>(datosgas,GASEOSAS))</span></code></pre></div>
+</div>
+<div id="variables-independientes-1" class="section level4">
+<h4>2.2.2 Variables Independientes</h4>
+<p>Los gráficos de tendencia para cada una de las dimesiones predictoras del modelo</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="modelo-gaseosas.html#cb34-1"></a><span class="co">#====== Desempleo ======#</span></span>
+<span id="cb34-2"><a href="modelo-gaseosas.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="modelo-gaseosas.html#cb34-3"></a>plot2<span class="fl">.1</span>  =<span class="st">  </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO))                                     <span class="op">+</span></span>
+<span id="cb34-4"><a href="modelo-gaseosas.html#cb34-4"></a><span class="st">            </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> DESEMPLEO), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)      <span class="op">+</span></span>
+<span id="cb34-5"><a href="modelo-gaseosas.html#cb34-5"></a><span class="st">            </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> DESEMPLEO), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)       <span class="op">+</span></span>
+<span id="cb34-6"><a href="modelo-gaseosas.html#cb34-6"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;Tasa de Desempleo  </span><span class="ch">\n</span><span class="st"> INE&quot;</span>,  </span>
+<span id="cb34-7"><a href="modelo-gaseosas.html#cb34-7"></a>            <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Valor Tasa&quot;</span>)                                        <span class="op">+</span></span>
+<span id="cb34-8"><a href="modelo-gaseosas.html#cb34-8"></a><span class="st">            </span><span class="kw">theme_bw</span>()                </span>
+<span id="cb34-9"><a href="modelo-gaseosas.html#cb34-9"></a> </span>
+<span id="cb34-10"><a href="modelo-gaseosas.html#cb34-10"></a></span>
+<span id="cb34-11"><a href="modelo-gaseosas.html#cb34-11"></a><span class="co">#====== Precio Gasesosas ======#</span></span>
+<span id="cb34-12"><a href="modelo-gaseosas.html#cb34-12"></a></span>
+<span id="cb34-13"><a href="modelo-gaseosas.html#cb34-13"></a>plot2<span class="fl">.2</span>   =<span class="st"> </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO))                                     <span class="op">+</span></span>
+<span id="cb34-14"><a href="modelo-gaseosas.html#cb34-14"></a><span class="st">            </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> PGASEOSAS_T), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)    <span class="op">+</span></span>
+<span id="cb34-15"><a href="modelo-gaseosas.html#cb34-15"></a><span class="st">            </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> PGASEOSAS_T), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)     <span class="op">+</span></span>
+<span id="cb34-16"><a href="modelo-gaseosas.html#cb34-16"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;Precio Industria </span><span class="ch">\n</span><span class="st">    Gaseosas&quot;</span>,  </span>
+<span id="cb34-17"><a href="modelo-gaseosas.html#cb34-17"></a>            <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>,  <span class="dt">y =</span> <span class="st">&quot;Precio&quot;</span>)                                           <span class="op">+</span></span>
+<span id="cb34-18"><a href="modelo-gaseosas.html#cb34-18"></a><span class="st">            </span><span class="kw">theme_bw</span>()                                                        </span>
+<span id="cb34-19"><a href="modelo-gaseosas.html#cb34-19"></a> </span>
+<span id="cb34-20"><a href="modelo-gaseosas.html#cb34-20"></a><span class="co">#====== Temperatura Máxima ======#</span></span>
+<span id="cb34-21"><a href="modelo-gaseosas.html#cb34-21"></a></span>
+<span id="cb34-22"><a href="modelo-gaseosas.html#cb34-22"></a>plot2<span class="fl">.3</span>  =<span class="st"> </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO))                                     <span class="op">+</span></span>
+<span id="cb34-23"><a href="modelo-gaseosas.html#cb34-23"></a><span class="st">           </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> TEMP_MAX), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)       <span class="op">+</span></span>
+<span id="cb34-24"><a href="modelo-gaseosas.html#cb34-24"></a><span class="st">           </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> TEMP_MAX), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)        <span class="op">+</span></span>
+<span id="cb34-25"><a href="modelo-gaseosas.html#cb34-25"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;Temperatura Máxima </span><span class="ch">\n</span><span class="st">  Promedio&quot;</span>, </span>
+<span id="cb34-26"><a href="modelo-gaseosas.html#cb34-26"></a>           <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>,<span class="dt">y =</span> <span class="st">&quot;Temperatura&quot;</span>)                                        <span class="op">+</span></span>
+<span id="cb34-27"><a href="modelo-gaseosas.html#cb34-27"></a><span class="st">           </span><span class="kw">theme_bw</span>()                                                 </span>
+<span id="cb34-28"><a href="modelo-gaseosas.html#cb34-28"></a> </span>
+<span id="cb34-29"><a href="modelo-gaseosas.html#cb34-29"></a><span class="co">#====== Índice de Movilidad ======#</span></span>
+<span id="cb34-30"><a href="modelo-gaseosas.html#cb34-30"></a></span>
+<span id="cb34-31"><a href="modelo-gaseosas.html#cb34-31"></a>plot2<span class="fl">.4</span> =<span class="st">   </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO))                                     <span class="op">+</span></span>
+<span id="cb34-32"><a href="modelo-gaseosas.html#cb34-32"></a><span class="st">            </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> MOVILIDAD), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)      <span class="op">+</span></span>
+<span id="cb34-33"><a href="modelo-gaseosas.html#cb34-33"></a><span class="st">            </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> MOVILIDAD), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)       <span class="op">+</span></span>
+<span id="cb34-34"><a href="modelo-gaseosas.html#cb34-34"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;Índice de Movibilidad&quot;</span>,</span>
+<span id="cb34-35"><a href="modelo-gaseosas.html#cb34-35"></a>            <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb34-36"><a href="modelo-gaseosas.html#cb34-36"></a>            <span class="dt">y =</span> <span class="st">&quot;Valor del índice&quot;</span>)                                               <span class="op">+</span></span>
+<span id="cb34-37"><a href="modelo-gaseosas.html#cb34-37"></a><span class="st">            </span><span class="kw">theme_bw</span>()                                               </span>
+<span id="cb34-38"><a href="modelo-gaseosas.html#cb34-38"></a> </span>
+<span id="cb34-39"><a href="modelo-gaseosas.html#cb34-39"></a>  </span>
+<span id="cb34-40"><a href="modelo-gaseosas.html#cb34-40"></a><span class="co">#====== Retiros ======#</span></span>
+<span id="cb34-41"><a href="modelo-gaseosas.html#cb34-41"></a></span>
+<span id="cb34-42"><a href="modelo-gaseosas.html#cb34-42"></a>plot2<span class="fl">.5</span>  =<span class="st"> </span><span class="kw">ggplot</span>(datosgas,<span class="kw">aes</span>(<span class="dt">x =</span> PERIODO))                                     <span class="op">+</span></span>
+<span id="cb34-43"><a href="modelo-gaseosas.html#cb34-43"></a><span class="st">           </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> RETIROS), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)        <span class="op">+</span></span>
+<span id="cb34-44"><a href="modelo-gaseosas.html#cb34-44"></a><span class="st">           </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> RETIROS), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">colour =</span> <span class="st">&quot;skyblue4&quot;</span>)         <span class="op">+</span></span>
+<span id="cb34-45"><a href="modelo-gaseosas.html#cb34-45"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;Variable Retiros </span><span class="ch">\n</span><span class="st"> AFP&quot;</span>,</span>
+<span id="cb34-46"><a href="modelo-gaseosas.html#cb34-46"></a>           <span class="dt">x =</span> <span class="st">&quot;Fecha&quot;</span>,</span>
+<span id="cb34-47"><a href="modelo-gaseosas.html#cb34-47"></a>           <span class="dt">y =</span> <span class="st">&quot;Valor del índice&quot;</span>)                                               <span class="op">+</span></span>
+<span id="cb34-48"><a href="modelo-gaseosas.html#cb34-48"></a><span class="st">           </span><span class="kw">theme_bw</span>()                                                       </span>
+<span id="cb34-49"><a href="modelo-gaseosas.html#cb34-49"></a>               </span>
+<span id="cb34-50"><a href="modelo-gaseosas.html#cb34-50"></a><span class="kw">ggarrange</span>(plot2<span class="fl">.1</span>,plot2<span class="fl">.2</span>,plot2<span class="fl">.3</span>,plot2<span class="fl">.4</span>,plot2<span class="fl">.5</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Los histogramas de distribuciones de cada dimensión predictiva</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="modelo-gaseosas.html#cb35-1"></a><span class="co">#====== Desempleo ======#</span></span>
+<span id="cb35-2"><a href="modelo-gaseosas.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="modelo-gaseosas.html#cb35-3"></a>plot3<span class="fl">.1</span>  =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> DESEMPLEO))                       <span class="op">+</span></span>
+<span id="cb35-4"><a href="modelo-gaseosas.html#cb35-4"></a><span class="st">           </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;slategray4&quot;</span>)   <span class="op">+</span></span>
+<span id="cb35-5"><a href="modelo-gaseosas.html#cb35-5"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma de la tasa </span><span class="ch">\n</span><span class="st"> de desempleo&quot;</span>, </span>
+<span id="cb35-6"><a href="modelo-gaseosas.html#cb35-6"></a>           <span class="dt">x =</span> <span class="st">&quot;Tasa desempleo&quot;</span>,  <span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                          <span class="op">+</span></span>
+<span id="cb35-7"><a href="modelo-gaseosas.html#cb35-7"></a><span class="st">           </span><span class="kw">theme_bw</span>()</span>
+<span id="cb35-8"><a href="modelo-gaseosas.html#cb35-8"></a></span>
+<span id="cb35-9"><a href="modelo-gaseosas.html#cb35-9"></a></span>
+<span id="cb35-10"><a href="modelo-gaseosas.html#cb35-10"></a><span class="co">#====== Precio Gaseosas ======#</span></span>
+<span id="cb35-11"><a href="modelo-gaseosas.html#cb35-11"></a></span>
+<span id="cb35-12"><a href="modelo-gaseosas.html#cb35-12"></a>plot3<span class="fl">.2</span>  =<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> PGASEOSAS_T))                      <span class="op">+</span></span>
+<span id="cb35-13"><a href="modelo-gaseosas.html#cb35-13"></a><span class="st">            </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;slategray4&quot;</span>)    <span class="op">+</span></span>
+<span id="cb35-14"><a href="modelo-gaseosas.html#cb35-14"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma de precio </span><span class="ch">\n</span><span class="st"> industria gasesosas&quot;</span>,</span>
+<span id="cb35-15"><a href="modelo-gaseosas.html#cb35-15"></a>            <span class="dt">x =</span> <span class="st">&quot;Precio Gaseosas&quot;</span>,  <span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                           <span class="op">+</span></span>
+<span id="cb35-16"><a href="modelo-gaseosas.html#cb35-16"></a><span class="st">            </span><span class="kw">theme_bw</span>()</span>
+<span id="cb35-17"><a href="modelo-gaseosas.html#cb35-17"></a></span>
+<span id="cb35-18"><a href="modelo-gaseosas.html#cb35-18"></a></span>
+<span id="cb35-19"><a href="modelo-gaseosas.html#cb35-19"></a><span class="co">#====== Temperatura Máxima ======#</span></span>
+<span id="cb35-20"><a href="modelo-gaseosas.html#cb35-20"></a></span>
+<span id="cb35-21"><a href="modelo-gaseosas.html#cb35-21"></a>plot3<span class="fl">.3</span>  =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_MAX))                          <span class="op">+</span></span>
+<span id="cb35-22"><a href="modelo-gaseosas.html#cb35-22"></a><span class="st">           </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;slategray4&quot;</span>)     <span class="op">+</span></span>
+<span id="cb35-23"><a href="modelo-gaseosas.html#cb35-23"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma de la </span><span class="ch">\n</span><span class="st"> temperatura máxima&quot;</span>,</span>
+<span id="cb35-24"><a href="modelo-gaseosas.html#cb35-24"></a>           <span class="dt">x =</span> <span class="st">&quot;Temperatura máxima&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                         <span class="op">+</span></span>
+<span id="cb35-25"><a href="modelo-gaseosas.html#cb35-25"></a><span class="st">           </span><span class="kw">theme_bw</span>()</span>
+<span id="cb35-26"><a href="modelo-gaseosas.html#cb35-26"></a></span>
+<span id="cb35-27"><a href="modelo-gaseosas.html#cb35-27"></a><span class="co">#====== Índice de Movilidad ======#</span></span>
+<span id="cb35-28"><a href="modelo-gaseosas.html#cb35-28"></a></span>
+<span id="cb35-29"><a href="modelo-gaseosas.html#cb35-29"></a></span>
+<span id="cb35-30"><a href="modelo-gaseosas.html#cb35-30"></a>plot3<span class="fl">.4</span>  =<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> MOVILIDAD))                        <span class="op">+</span></span>
+<span id="cb35-31"><a href="modelo-gaseosas.html#cb35-31"></a><span class="st">            </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;slategray4&quot;</span>)    <span class="op">+</span></span>
+<span id="cb35-32"><a href="modelo-gaseosas.html#cb35-32"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma de índice </span><span class="ch">\n</span><span class="st"> de movilidad &quot;</span>,  </span>
+<span id="cb35-33"><a href="modelo-gaseosas.html#cb35-33"></a>            <span class="dt">x =</span> <span class="st">&quot;índice movilidad&quot;</span>,<span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                      <span class="op">+</span></span>
+<span id="cb35-34"><a href="modelo-gaseosas.html#cb35-34"></a><span class="st">            </span><span class="kw">theme_bw</span>()</span>
+<span id="cb35-35"><a href="modelo-gaseosas.html#cb35-35"></a></span>
+<span id="cb35-36"><a href="modelo-gaseosas.html#cb35-36"></a></span>
+<span id="cb35-37"><a href="modelo-gaseosas.html#cb35-37"></a><span class="co">#====== Retiros ======#</span></span>
+<span id="cb35-38"><a href="modelo-gaseosas.html#cb35-38"></a></span>
+<span id="cb35-39"><a href="modelo-gaseosas.html#cb35-39"></a></span>
+<span id="cb35-40"><a href="modelo-gaseosas.html#cb35-40"></a>plot3<span class="fl">.5</span>  =<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> RETIROS))                          <span class="op">+</span></span>
+<span id="cb35-41"><a href="modelo-gaseosas.html#cb35-41"></a><span class="st">            </span><span class="kw">geom_histogram</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;slategray4&quot;</span>)    <span class="op">+</span></span>
+<span id="cb35-42"><a href="modelo-gaseosas.html#cb35-42"></a><span class="st">            </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograma de retiros </span><span class="ch">\n</span><span class="st"> AFP&quot;</span>, </span>
+<span id="cb35-43"><a href="modelo-gaseosas.html#cb35-43"></a>            <span class="dt">x =</span> <span class="st">&quot;Retiros AFP&quot;</span>,  <span class="dt">y =</span> <span class="st">&quot;Frecuencia&quot;</span>)                              <span class="op">+</span></span>
+<span id="cb35-44"><a href="modelo-gaseosas.html#cb35-44"></a><span class="st">            </span><span class="kw">theme_bw</span>()</span>
+<span id="cb35-45"><a href="modelo-gaseosas.html#cb35-45"></a></span>
+<span id="cb35-46"><a href="modelo-gaseosas.html#cb35-46"></a><span class="kw">ggarrange</span>(plot3<span class="fl">.1</span>,plot3<span class="fl">.2</span>,plot3<span class="fl">.3</span>,plot3<span class="fl">.4</span>,plot3<span class="fl">.5</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="modelo-gaseosas.html#cb36-1"></a>medidas_variables =<span class="st"> </span>skimr<span class="op">::</span><span class="kw">skim</span>(<span class="kw">select</span>(datosgas,<span class="op">-</span><span class="kw">c</span>(PERIODO,GASEOSAS)))</span></code></pre></div>
+</div>
+</div>
+<div id="análisis-bivariado-1" class="section level2">
+<h2>2.2 Análisis Bivariado</h2>
+<p>A continuación los gráficos de dispersión de la variable objetivo con las dimensiones independientes</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="modelo-gaseosas.html#cb37-1"></a>subset2<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">select</span>(datosgas,<span class="op">-</span><span class="kw">c</span>(PERIODO,GASEOSAS))</span>
+<span id="cb37-2"><a href="modelo-gaseosas.html#cb37-2"></a>Gaseosas &lt;-<span class="st"> </span>datosgas<span class="op">$</span>GASEOSAS</span>
+<span id="cb37-3"><a href="modelo-gaseosas.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="modelo-gaseosas.html#cb37-4"></a>myplots &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb37-5"><a href="modelo-gaseosas.html#cb37-5"></a></span>
+<span id="cb37-6"><a href="modelo-gaseosas.html#cb37-6"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(subset2<span class="fl">.2</span>)){</span>
+<span id="cb37-7"><a href="modelo-gaseosas.html#cb37-7"></a>  col &lt;-<span class="st"> </span><span class="kw">names</span>(subset2<span class="fl">.2</span>)[i]</span>
+<span id="cb37-8"><a href="modelo-gaseosas.html#cb37-8"></a>  aux &lt;-<span class="st"> </span><span class="kw">bind_cols</span>(<span class="dt">Gaseosas =</span> Gaseosas,<span class="kw">select</span>(datosgas,col))</span>
+<span id="cb37-9"><a href="modelo-gaseosas.html#cb37-9"></a>  ggp &lt;-<span class="st"> </span><span class="kw">ggplot</span>(aux, <span class="kw">aes_string</span>(<span class="dt">x =</span> col , <span class="dt">y =</span> <span class="st">&quot;Gaseosas&quot;</span>))    <span class="op">+</span></span>
+<span id="cb37-10"><a href="modelo-gaseosas.html#cb37-10"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;slategray4&quot;</span>,<span class="dt">alpha=</span><span class="fl">0.7</span>)                <span class="op">+</span></span>
+<span id="cb37-11"><a href="modelo-gaseosas.html#cb37-11"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)                      <span class="op">+</span></span>
+<span id="cb37-12"><a href="modelo-gaseosas.html#cb37-12"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Volumen Industria Gaseosas&quot;</span>)                     <span class="op">+</span></span>
+<span id="cb37-13"><a href="modelo-gaseosas.html#cb37-13"></a><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> <span class="kw">label_number</span>(<span class="dt">suffix =</span> <span class="st">&quot; M&quot;</span>, <span class="dt">scale =</span> <span class="fl">1e-6</span>))</span>
+<span id="cb37-14"><a href="modelo-gaseosas.html#cb37-14"></a>  <span class="kw">theme_bw</span>()</span>
+<span id="cb37-15"><a href="modelo-gaseosas.html#cb37-15"></a>  myplots[[i]] &lt;-<span class="st"> </span>ggp</span>
+<span id="cb37-16"><a href="modelo-gaseosas.html#cb37-16"></a>  <span class="kw">rm</span>(ggp,aux,col)</span>
+<span id="cb37-17"><a href="modelo-gaseosas.html#cb37-17"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="modelo-gaseosas.html#cb38-1"></a>plot3<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">ggarrange</span>(myplots[[<span class="dv">1</span>]],myplots[[<span class="dv">2</span>]],myplots[[<span class="dv">3</span>]], </span>
+<span id="cb38-2"><a href="modelo-gaseosas.html#cb38-2"></a>                     myplots[[<span class="dv">4</span>]],myplots[[<span class="dv">5</span>]],</span>
+<span id="cb38-3"><a href="modelo-gaseosas.html#cb38-3"></a>                     <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">common.legend =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb38-4"><a href="modelo-gaseosas.html#cb38-4"></a></span>
+<span id="cb38-5"><a href="modelo-gaseosas.html#cb38-5"></a><span class="kw">annotate_figure</span>(plot3<span class="fl">.3</span>,<span class="dt">top =</span> <span class="kw">text_grob</span>(<span class="st">&quot;Gráficos de dispersión las variables independientes&quot;</span>))</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>Cálculo de correlaciones de la variable objetivo con las dimensiones utilizadas</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="modelo-gaseosas.html#cb39-1"></a><span class="kw">tibble</span>(<span class="dt">Variable =</span> <span class="kw">row.names</span>(<span class="kw">cor</span>(subset2<span class="fl">.2</span>, Gaseosas)),</span>
+<span id="cb39-2"><a href="modelo-gaseosas.html#cb39-2"></a>       <span class="dt">Correlacion =</span> <span class="kw">as.numeric</span>(<span class="kw">cor</span>(subset2<span class="fl">.2</span>, Gaseosas))) <span class="op">%&gt;%</span></span>
+<span id="cb39-3"><a href="modelo-gaseosas.html#cb39-3"></a><span class="st">       </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="kw">abs</span>(Correlacion)))</span></code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+##   Variable    Correlacion
+##   &lt;chr&gt;             &lt;dbl&gt;
+## 1 TEMP_MAX        0.761  
+## 2 RETIROS         0.185  
+## 3 MOVILIDAD       0.153  
+## 4 DESEMPLEO      -0.125  
+## 5 PGASEOSAS_T     0.00333</code></pre>
+<div id="ajuste-del-modelo-ccu-1" class="section level4">
+<h4>Ajuste del Modelo CCU</h4>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="modelo-gaseosas.html#cb41-1"></a>Gaseosas   =<span class="st"> </span><span class="kw">ts</span>(datosgas<span class="op">$</span>GASEOSAS, <span class="dt">frequency=</span><span class="dv">12</span>, <span class="dt">start=</span><span class="kw">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb41-2"><a href="modelo-gaseosas.html#cb41-2"></a>TYPCYD2    =<span class="st"> </span><span class="kw">ts</span>(<span class="kw">as.matrix</span>(<span class="kw">select</span>(datosgas,<span class="op">-</span><span class="kw">c</span>(PERIODO,GASEOSAS))), <span class="dt">frequency=</span><span class="dv">12</span>,</span>
+<span id="cb41-3"><a href="modelo-gaseosas.html#cb41-3"></a>            <span class="dt">start=</span><span class="kw">c</span>(<span class="dv">2015</span>,<span class="dv">1</span>))</span>
+<span id="cb41-4"><a href="modelo-gaseosas.html#cb41-4"></a></span>
+<span id="cb41-5"><a href="modelo-gaseosas.html#cb41-5"></a><span class="co">## Modelo Ajustado  con la función auto.arima()</span></span>
+<span id="cb41-6"><a href="modelo-gaseosas.html#cb41-6"></a></span>
+<span id="cb41-7"><a href="modelo-gaseosas.html#cb41-7"></a>arimaCervezas =<span class="st"> </span><span class="kw">auto.arima</span>(Gaseosas, <span class="dt">xreg=</span>TYPCYD2)</span></code></pre></div>
+<p>Se ajusta el modelo obtenido con la función auto.arima( ) utilizando la función Arima( ) del paquete forecast de R,</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="modelo-gaseosas.html#cb42-1"></a><span class="co">## Ajustar el modelo obtenido con autoarima con la función Arima</span></span>
+<span id="cb42-2"><a href="modelo-gaseosas.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="modelo-gaseosas.html#cb42-3"></a>model_auto_arima_gas =<span class="st"> </span><span class="kw">Arima</span>(Gaseosas,<span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb42-4"><a href="modelo-gaseosas.html#cb42-4"></a>                         <span class="dt">seasonal =</span> <span class="kw">list</span>(<span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb42-5"><a href="modelo-gaseosas.html#cb42-5"></a>                         <span class="dt">period =</span> <span class="dv">12</span>),<span class="dt">include.drift =</span><span class="ot">TRUE</span>,<span class="dt">xreg =</span> TYPCYD2 )</span></code></pre></div>
+<p>Se evalúa la significancia de los parámetros realizando test <span class="math inline">\(H_0:\beta_i = 0\)</span> v/s <span class="math inline">\(H_1: \beta_i \neq 0\)</span> para <span class="math inline">\(i=1,2,3,4,5\)</span></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="modelo-gaseosas.html#cb43-1"></a><span class="co">### Significancia de los parámetros del modelo</span></span>
+<span id="cb43-2"><a href="modelo-gaseosas.html#cb43-2"></a></span>
+<span id="cb43-3"><a href="modelo-gaseosas.html#cb43-3"></a>beta_est =<span class="st"> </span>model_auto_arima_gas<span class="op">$</span>coef</span>
+<span id="cb43-4"><a href="modelo-gaseosas.html#cb43-4"></a>sd_est =<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(model_auto_arima_gas<span class="op">$</span>var.coef))</span>
+<span id="cb43-5"><a href="modelo-gaseosas.html#cb43-5"></a>value_t =<span class="st"> </span><span class="kw">abs</span>(beta_est<span class="op">/</span>sd_est)</span></code></pre></div>
+</div>
+</div>
+<div id="análisis-multivariado-1" class="section level2">
+<h2>2.3 Análisis Multivariado</h2>
+<p>A continuación los gráficos de heatmap de correlaciones de a pares de las dimensiones independientes</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="modelo-gaseosas.html#cb44-1"></a>variables      =<span class="st"> </span><span class="kw">colnames</span>(subset2<span class="fl">.2</span>[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span>
+<span id="cb44-2"><a href="modelo-gaseosas.html#cb44-2"></a>corr_variables =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">round</span>(<span class="kw">cor</span>(subset2<span class="fl">.2</span>[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]),<span class="dv">3</span>),<span class="dt">nrow=</span><span class="dv">5</span>,<span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(variables,variables))</span>
+<span id="cb44-3"><a href="modelo-gaseosas.html#cb44-3"></a></span>
+<span id="cb44-4"><a href="modelo-gaseosas.html#cb44-4"></a><span class="kw">ggcorrplot</span>(corr_variables, <span class="dt">hc.order =</span> <span class="ot">TRUE</span>, <span class="dt">outline.col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lab =</span> <span class="ot">TRUE</span>, )    <span class="op">+</span><span class="st"> </span></span>
+<span id="cb44-5"><a href="modelo-gaseosas.html#cb44-5"></a><span class="st">           </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>),</span>
+<span id="cb44-6"><a href="modelo-gaseosas.html#cb44-6"></a>           <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>)) </span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+</div>
+<div id="verificación-de-los-supuestos-1" class="section level2">
+<h2>2.4 Verificación de los supuestos</h2>
+<div id="normalidad-1" class="section level4">
+<h4>2.4.1 Normalidad</h4>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="modelo-gaseosas.html#cb45-1"></a>datosgas<span class="op">$</span>Residuos &lt;-<span class="st"> </span><span class="kw">residuals</span>(model_auto_arima_gas)</span>
+<span id="cb45-2"><a href="modelo-gaseosas.html#cb45-2"></a></span>
+<span id="cb45-3"><a href="modelo-gaseosas.html#cb45-3"></a><span class="co"># Residuos Estandarizados</span></span>
+<span id="cb45-4"><a href="modelo-gaseosas.html#cb45-4"></a>datosgas<span class="op">$</span>Residuos_z =<span class="st"> </span>(datosgas<span class="op">$</span>Residuos <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(datosgas<span class="op">$</span>Residuos))<span class="op">/</span><span class="kw">sd</span>(datosgas<span class="op">$</span>Residuos)</span>
+<span id="cb45-5"><a href="modelo-gaseosas.html#cb45-5"></a>  </span>
+<span id="cb45-6"><a href="modelo-gaseosas.html#cb45-6"></a><span class="co"># ===== QQ-plot =====#</span></span>
+<span id="cb45-7"><a href="modelo-gaseosas.html#cb45-7"></a></span>
+<span id="cb45-8"><a href="modelo-gaseosas.html#cb45-8"></a>plot4<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datosgas, <span class="kw">aes</span>(<span class="dt">sample =</span> Residuos_z))         <span class="op">+</span><span class="st"> </span></span>
+<span id="cb45-9"><a href="modelo-gaseosas.html#cb45-9"></a><span class="st">           </span><span class="kw">stat_qq</span>()                                          <span class="op">+</span><span class="st"> </span></span>
+<span id="cb45-10"><a href="modelo-gaseosas.html#cb45-10"></a><span class="st">           </span><span class="kw">geom_abline</span>(<span class="dt">slope=</span><span class="dv">1</span>)                               <span class="op">+</span><span class="st"> </span></span>
+<span id="cb45-11"><a href="modelo-gaseosas.html#cb45-11"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q Plot&quot;</span>,</span>
+<span id="cb45-12"><a href="modelo-gaseosas.html#cb45-12"></a>           <span class="dt">x =</span> <span class="st">&quot;Theoretical Quantiles&quot;</span>,</span>
+<span id="cb45-13"><a href="modelo-gaseosas.html#cb45-13"></a>           <span class="dt">y =</span> <span class="st">&quot;Sample Quantiles&quot;</span>)              <span class="op">+</span></span>
+<span id="cb45-14"><a href="modelo-gaseosas.html#cb45-14"></a><span class="st">           </span><span class="kw">theme_bw</span>()</span>
+<span id="cb45-15"><a href="modelo-gaseosas.html#cb45-15"></a></span>
+<span id="cb45-16"><a href="modelo-gaseosas.html#cb45-16"></a>x  =<span class="st"> </span><span class="kw">seq</span>(<span class="kw">min</span>(<span class="kw">seq</span>(<span class="kw">min</span>(datosgas<span class="op">$</span>Residuos_z),<span class="kw">max</span>(datosgas<span class="op">$</span>Residuos_z),<span class="dt">len=</span><span class="dv">1000</span>)),</span>
+<span id="cb45-17"><a href="modelo-gaseosas.html#cb45-17"></a>     <span class="kw">max</span>(datosgas<span class="op">$</span>Residuos_z),<span class="dt">len=</span><span class="dv">1000</span>)</span>
+<span id="cb45-18"><a href="modelo-gaseosas.html#cb45-18"></a>gg =<span class="st"> </span><span class="kw">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb45-19"><a href="modelo-gaseosas.html#cb45-19"></a></span>
+<span id="cb45-20"><a href="modelo-gaseosas.html#cb45-20"></a>datosplot &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> gg)</span>
+<span id="cb45-21"><a href="modelo-gaseosas.html#cb45-21"></a></span>
+<span id="cb45-22"><a href="modelo-gaseosas.html#cb45-22"></a>plot4<span class="fl">.4</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> datosgas, <span class="kw">aes</span>(<span class="dt">x =</span> Residuos_z))        <span class="op">+</span></span>
+<span id="cb45-23"><a href="modelo-gaseosas.html#cb45-23"></a><span class="st">           </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..),<span class="dt">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb45-24"><a href="modelo-gaseosas.html#cb45-24"></a>           <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;gray50&quot;</span>)                     <span class="op">+</span></span>
+<span id="cb45-25"><a href="modelo-gaseosas.html#cb45-25"></a><span class="st">           </span><span class="kw">geom_point</span>(<span class="dt">data=</span>datosplot, <span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y),</span>
+<span id="cb45-26"><a href="modelo-gaseosas.html#cb45-26"></a>           <span class="dt">color=</span><span class="st">&quot;skyblue4&quot;</span>)                                   <span class="op">+</span></span>
+<span id="cb45-27"><a href="modelo-gaseosas.html#cb45-27"></a><span class="st">           </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Distribución Normal&quot;</span>,</span>
+<span id="cb45-28"><a href="modelo-gaseosas.html#cb45-28"></a>            <span class="dt">x =</span> <span class="st">&quot;Residuos&quot;</span>) <span class="op">+</span></span>
+<span id="cb45-29"><a href="modelo-gaseosas.html#cb45-29"></a><span class="st">            </span><span class="kw">theme_bw</span>()</span>
+<span id="cb45-30"><a href="modelo-gaseosas.html#cb45-30"></a></span>
+<span id="cb45-31"><a href="modelo-gaseosas.html#cb45-31"></a><span class="kw">ggarrange</span>(plot4<span class="fl">.3</span>,plot4<span class="fl">.4</span>,<span class="dt">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+</div>
+<div id="independencia-1" class="section level4">
+<h4>2.4.2 Independencia</h4>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="modelo-gaseosas.html#cb46-1"></a>plot1 =<span class="st"> </span><span class="kw">ggAcf</span>(datosgas<span class="op">$</span>Residuos,<span class="dt">lag=</span><span class="dv">30</span>) <span class="op">+</span></span>
+<span id="cb46-2"><a href="modelo-gaseosas.html#cb46-2"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;ACF Residuos Modelo Gaseosas&quot;</span>) <span class="op">+</span></span>
+<span id="cb46-3"><a href="modelo-gaseosas.html#cb46-3"></a><span class="st">        </span><span class="kw">ylim</span>(<span class="op">-</span><span class="fl">0.3</span>,<span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb46-4"><a href="modelo-gaseosas.html#cb46-4"></a><span class="st">        </span><span class="kw">theme_bw</span>()</span>
+<span id="cb46-5"><a href="modelo-gaseosas.html#cb46-5"></a>plot1</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p>El test de Ljung-Box para testear simúltaneamente que sean incorrelacionados los errores para varios lag de tiempo</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="modelo-gaseosas.html#cb47-1"></a>Est =<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb47-2"><a href="modelo-gaseosas.html#cb47-2"></a>valorp =<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb47-3"><a href="modelo-gaseosas.html#cb47-3"></a></span>
+<span id="cb47-4"><a href="modelo-gaseosas.html#cb47-4"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>){</span>
+<span id="cb47-5"><a href="modelo-gaseosas.html#cb47-5"></a>  Test =<span class="st"> </span><span class="kw">Box.test</span>(datosgas<span class="op">$</span>Residuos, <span class="dt">lag =</span> i, <span class="dt">type =</span>   <span class="st">&quot;Ljung-Box&quot;</span>)</span>
+<span id="cb47-6"><a href="modelo-gaseosas.html#cb47-6"></a>  Est[i]  =<span class="st"> </span>Test<span class="op">$</span>statistic</span>
+<span id="cb47-7"><a href="modelo-gaseosas.html#cb47-7"></a>  valorp[i] =<span class="st"> </span>Test<span class="op">$</span>p.value</span>
+<span id="cb47-8"><a href="modelo-gaseosas.html#cb47-8"></a>}</span>
+<span id="cb47-9"><a href="modelo-gaseosas.html#cb47-9"></a></span>
+<span id="cb47-10"><a href="modelo-gaseosas.html#cb47-10"></a><span class="kw">tibble</span>(<span class="dt">Lag =</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">12</span>),<span class="dt">Estadistico =</span> Est, <span class="dt">valor_p =</span> valorp)</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+##      Lag Estadistico valor_p
+##    &lt;int&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+##  1     1     0.00200   0.964
+##  2     2     0.0261    0.987
+##  3     3     0.0282    0.999
+##  4     4     0.987     0.912
+##  5     5     2.30      0.806
+##  6     6     2.36      0.884
+##  7     7     2.49      0.928
+##  8     8     3.39      0.908
+##  9     9     6.53      0.686
+## 10    10     6.71      0.752
+## 11    11     7.63      0.746
+## 12    12     7.63      0.813</code></pre>
+<p>Gráfico de los valores-p del test Ljung-Box</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="modelo-gaseosas.html#cb49-1"></a><span class="kw">LBQPlot</span>(datosgas<span class="op">$</span>Residuos)</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+</div>
+<div id="no-colinealidad-1" class="section level4">
+<h4>2.4.3 No colinealidad</h4>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="modelo-gaseosas.html#cb50-1"></a>Regresion_Model_Gas &lt;-<span class="st"> </span><span class="kw">lm</span>(GASEOSAS <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>DESEMPLEO  <span class="op">+</span><span class="st"> </span>PGASEOSAS_T <span class="op">+</span>TEMP_MAX <span class="op">+</span><span class="st"> </span>MOVILIDAD <span class="op">+</span>RETIROS,<span class="dt">data=</span>datosgas )</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="modelo-gaseosas.html#cb51-1"></a><span class="kw">tibble</span>(<span class="dt">Variable =</span> <span class="kw">names</span>(<span class="kw">vif</span>(Regresion_Model_Gas)), <span class="dt">VIF =</span> <span class="kw">round</span>(<span class="kw">vif</span>(Regresion_Model_Gas),<span class="dv">3</span>))<span class="op">%&gt;%</span><span class="kw">as.data.frame</span>()</span></code></pre></div>
+<pre><code>##      Variable     VIF
+## 1   DESEMPLEO 209.937
+## 2 PGASEOSAS_T 210.772
+## 3    TEMP_MAX  20.191
+## 4   MOVILIDAD   8.554
+## 5     RETIROS   2.109</code></pre>
+</div>
+<div id="homocedasticidad-1" class="section level4">
+<h4>2.4.4 Homocedasticidad</h4>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="modelo-gaseosas.html#cb53-1"></a>plot1 =<span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">data =</span> subset2<span class="fl">.2</span>, <span class="kw">aes</span>(model_auto_arima_gas<span class="op">$</span>fitted,model_auto_arima_gas<span class="op">$</span>residuals)) <span class="op">+</span></span>
+<span id="cb53-2"><a href="modelo-gaseosas.html#cb53-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb53-3"><a href="modelo-gaseosas.html#cb53-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">color =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb53-4"><a href="modelo-gaseosas.html#cb53-4"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb53-5"><a href="modelo-gaseosas.html#cb53-5"></a><span class="st">  </span><span class="kw">labs</span>( <span class="dt">title =</span> <span class="st">&quot;Gráfico Homocedasticidad Modelo Gaseosas &quot;</span>,</span>
+<span id="cb53-6"><a href="modelo-gaseosas.html#cb53-6"></a>        <span class="dt">y =</span> <span class="st">&quot;Residuos&quot;</span>,</span>
+<span id="cb53-7"><a href="modelo-gaseosas.html#cb53-7"></a>        <span class="dt">x =</span> <span class="st">&quot;Ventas Volumen Proyectadas&quot;</span>)               <span class="op">+</span></span>
+<span id="cb53-8"><a href="modelo-gaseosas.html#cb53-8"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span>
+<span id="cb53-9"><a href="modelo-gaseosas.html#cb53-9"></a></span>
+<span id="cb53-10"><a href="modelo-gaseosas.html#cb53-10"></a>plot1</span></code></pre></div>
+<p><img src="Co%CC%81digos-Auditori%CC%81a-CCU_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelo-cervezas.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
